@@ -27,7 +27,7 @@ services:
       MONGODB_URI: mongodb://slotswapper_user:slotswapper_pass@mongodb:27017/slotswapper
       JWT_SECRET: your-super-secret-jwt-key-change-this-in-production-slot-swapper-2024
       JWT_EXPIRES_IN: 24h
-      FRONTEND_URL: http://localhost:3000
+      FRONTEND_URL: http://localhost:5173
     depends_on:
       - mongodb
 
@@ -36,10 +36,9 @@ services:
     build: ./frontend
     container_name: slot-swapper-frontend
     ports:
-      - "3000:80"
+      - "5173:80"
     environment:
       VITE_API_BASE_URL: http://localhost:5002/api
-      VITE_NODE_ENV: development
     depends_on:
       - backend
 

@@ -502,15 +502,3 @@ npm install
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
-
-- React team for the amazing framework
-- MongoDB team for the robust database
-- Tailwind CSS for the utility-first CSS framework
-- All contributors who help improve this project
-
----
-
-**Happy coding! 🚀**
-
-> For more detailed information, check out our [documentation](./docs) folder or visit our [GitHub repository](https://github.com/yourusername/slot-swapper).

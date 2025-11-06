@@ -22,12 +22,7 @@
         "format:backend": "cd backend && npm run format",
         "format:frontend": "cd frontend && npm run format",
         "docker:up": "docker-compose up --build",
-        "docker:down": "docker-compose down",
-        "generate-jwt-secret": "node scripts/generate-jwt-secret.js",
-        "deploy:check": "npm run lint && npm run test && npm run build",
-        "deploy:prepare": "npm run generate-jwt-secret",
-        "deploy:verify": "node scripts/verify-deployment.js",
-        "generate-jwt-secret": "node scripts/generate-jwt-secret.js"
+        "docker:down": "docker-compose down"
     },
     "devDependencies": {
         "concurrently": "^8.2.0"

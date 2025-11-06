@@ -23,11 +23,14 @@ jobs:
       with:
         node-version: ${{ env.NODE_VERSION }}
         cache: 'npm'
-        cache-dependency-path: backend/package-lock.json
+        cache-dependency-path: package-lock.json
+
+    - name: Install all dependencies
+      run: npm ci
 
     - name: Install backend dependencies
       working-directory: ./backend
-      run: npm ci
+      run: npm install
 
     - name: Run backend unit tests
       working-directory: ./backend
@@ -50,11 +53,14 @@ jobs:
       with:
         node-version: ${{ env.NODE_VERSION }}
         cache: 'npm'
-        cache-dependency-path: frontend/package-lock.json
+        cache-dependency-path: package-lock.json
+
+    - name: Install all dependencies
+      run: npm ci
 
     - name: Install frontend dependencies
       working-directory: ./frontend
-      run: npm ci
+      run: npm install
 
     - name: Build frontend
       working-directory: ./frontend

@@ -1,13 +1,13 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
-import { AuthProvider } from './contexts/AuthContext'
-import { ToastProvider } from './contexts/ToastContext'
-import ProtectedRoute from './components/ProtectedRoute'
-import LoginForm from './components/LoginForm'
-import SignupForm from './components/SignupForm'
-import CalendarDashboard from './components/CalendarDashboard'
-import MarketplaceView from './components/MarketplaceView'
-import NotificationsView from './components/NotificationsView'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
+import { ToastProvider } from './contexts/ToastContext';
+import ProtectedRoute from './components/ProtectedRoute';
+import LoginForm from './components/LoginForm';
+import SignupForm from './components/SignupForm';
+import CalendarDashboard from './components/CalendarDashboard';
+import MarketplaceView from './components/MarketplaceView';
+import NotificationsView from './components/NotificationsView';
 
 function App() {
     return (
@@ -48,7 +48,7 @@ function App() {
                 </Router>
             </AuthProvider>
         </ToastProvider>
-    )
+    );
 }
 
-export default App
+export default App;

@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* Custom CSS Variables for consistent theming */
 :root {
@@ -136,7 +138,7 @@ body {
 
 /* Smooth transitions */
 .transition-all {
-  @apply transition-all duration-200 ease-in-out;
+  transition: all 200ms ease-in-out;
 }
 
 /* Custom scrollbar for webkit browsers */

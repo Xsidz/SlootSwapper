@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:7.0
+    container_name: slot-swapper-mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: slotswapper
+    volumes:
+      - mongodb_data:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+
+  # Backend API
+  backend:
+    build: ./backend
+    container_name: slot-swapper-backend
+    ports:
+      - "5002:5002"
+    environment:
+      NODE_ENV: development
+      PORT: 5002
+      MONGODB_URI: mongodb://slotswapper_user:slotswapper_pass@mongodb:27017/slotswapper
+      JWT_SECRET: your-super-secret-jwt-key-change-this-in-production-slot-swapper-2024
+      JWT_EXPIRES_IN: 24h
+      FRONTEND_URL: http://localhost:3000
+    depends_on:
+      - mongodb
+
+  # Frontend React App
+  frontend:
+    build: ./frontend
+    container_name: slot-swapper-frontend
+    ports:
+      - "3000:80"
+    environment:
+      VITE_API_BASE_URL: http://localhost:5002/api
+      VITE_NODE_ENV: development
+    depends_on:
+      - backend
+
+volumes:
+  mongodb_data:

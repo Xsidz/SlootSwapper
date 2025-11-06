@@ -1,0 +1,39 @@
+{
+    "name": "slot-swapper",
+    "version": "1.0.0",
+    "description": "A peer-to-peer time-slot exchange platform",
+    "private": true,
+    "scripts": {
+        "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+        "dev:backend": "cd backend && npm run dev",
+        "dev:frontend": "cd frontend && npm run dev",
+        "install:all": "npm run install:backend && npm run install:frontend",
+        "install:backend": "cd backend && npm install",
+        "install:frontend": "cd frontend && npm install",
+        "build": "cd frontend && npm run build",
+        "test": "cd backend && npm test",
+        "lint": "npm run lint:backend && npm run lint:frontend",
+        "lint:backend": "cd backend && npm run lint",
+        "lint:frontend": "cd frontend && npm run lint",
+        "lint:fix": "npm run lint:fix:backend && npm run lint:fix:frontend",
+        "lint:fix:backend": "cd backend && npm run lint:fix",
+        "lint:fix:frontend": "cd frontend && npm run lint:fix",
+        "format": "npm run format:backend && npm run format:frontend",
+        "format:backend": "cd backend && npm run format",
+        "format:frontend": "cd frontend && npm run format",
+        "docker:up": "docker-compose up --build",
+        "docker:down": "docker-compose down",
+        "generate-jwt-secret": "node scripts/generate-jwt-secret.js",
+        "deploy:check": "npm run lint && npm run test && npm run build",
+        "deploy:prepare": "npm run generate-jwt-secret",
+        "deploy:verify": "node scripts/verify-deployment.js",
+        "generate-jwt-secret": "node scripts/generate-jwt-secret.js"
+    },
+    "devDependencies": {
+        "concurrently": "^8.2.0"
+    },
+    "workspaces": [
+        "frontend",
+        "backend"
+    ]
+}

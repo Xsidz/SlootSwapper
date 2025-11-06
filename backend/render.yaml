@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: slotswapper-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+    # Environment variables to be set manually in Render dashboard:
+    # MONGODB_URI - MongoDB Atlas connection string
+    # JWT_SECRET - Secure random string for JWT signing
+    # JWT_EXPIRES_IN - Token expiration time (e.g., 24h)
+    # FRONTEND_URL - Your Vercel frontend URL
